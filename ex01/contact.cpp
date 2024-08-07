@@ -33,6 +33,16 @@ std::string Contact::getNickName()
     return nickname;
 }
 
+std::string Contact::getPhone()
+{
+    return phone;
+}
+
+std::string Contact::getDarkestSec()
+{
+    return darkest_sec;
+}
+
 void Contact::setIndex(int new_index)
 {
     index = new_index;
@@ -51,4 +61,15 @@ void Contact::setNickname(std::string new_nickname)
 {
     nickname = new_nickname;
 }
+
+void Contact::setPhone(std::string new_phone)
+{
+    phone = new_phone;
+}
+
+void Contact::setDarkestSec(std::string new_secret)
+{
+    darkest_sec = new_secret;
+}
+
 
