@@ -5,66 +5,95 @@ int main()
 {
     PhoneBook phoneBook;
     std::string command, fname, lname, nickName, phone, darkest;
+    int index;
     Contact contact;
-   while (true) {
-        std::cout << "\033[1;34mEnter command (ADD/SEARCH/EXIT): \033[0m";
+    while (true)
+    {
+        std::cout << MAGENTA << "Enter command (ADD/SEARCH/EXIT):" << RESET;
         std::getline(std::cin, command);
 
-        if (command == "ADD") {
-            std::cout << "\033[1;34mEnter first name: \033[0m";
+        if (command == "ADD")
+        {
+            std::cout << BLUE << "Enter first name:" << RESET;
             std::getline(std::cin, fname);
-            if (fname.empty()) {
-                std::cout << "First name cannot be empty. Starting over...\n";
+            if (fname.empty())
+            {
+                std::cout << RED << "First name cannot be empty.\n"
+                          << RESET;
                 continue;
             }
             contact.setFirstName(fname);
 
-            std::cout << "\033[1;35mEnter last name: \033[0m";
+            std::cout << BLUE << "Enter last name: " << RESET;
             std::getline(std::cin, lname);
-            if (lname.empty()) {
-                std::cout << "Last name cannot be empty. Starting over...\n";
+            if (lname.empty())
+            {
+                std::cout << "Last name cannot be empty.\n"
+                          << RESET;
                 continue;
             }
             contact.setLastName(lname);
 
-            std::cout << "\033[1;36mEnter nickname: \033[0m";
+            std::cout << BLUE << "Enter nickname: " << RESET;
             std::getline(std::cin, nickName);
-            if (nickName.empty()) {
-                std::cout << "Nickname cannot be empty. Starting over...\n";
+            if (nickName.empty())
+            {
+                std::cout << "Nickname cannot be empty. \n"
+                          << RESET;
                 continue;
             }
             contact.setNickname(nickName);
 
-            std::cout << "\033[1;33mEnter phone number: \033[0m";
+            std::cout << BLUE << "Enter phone number:" << RESET;
             std::getline(std::cin, phone);
-            if (phone.empty()) {
-                std::cout << "Phone number cannot be empty. Starting over...\n";
+            if (phone.empty())
+            {
+                std::cout << "Phone number cannot be empty. \n"
+                          << RESET;
                 continue;
             }
             contact.setPhone(phone);
 
-            std::cout << "\033[1;31mEnter darkest secret: \033[0m";
+            std::cout << BLUE << "Enter darkest secret:" << RESET;
             std::getline(std::cin, darkest);
-            if (darkest.empty()) {
-                std::cout << "Darkest secret cannot be empty. Starting over...\n";
+            if (darkest.empty())
+            {
+                std::cout << "Darkest secret cannot be empty. \n"
+                          << RESET;
                 continue;
             }
             contact.setDarkestSec(darkest);
 
             phoneBook.addContact(contact);
-
-        } else if (command == "SEARCH") {
-            std::cout << "\033[1;34mEnter first name: \033[0m";
-            std::getline(std::cin, fname);
-            if (fname.empty()) {
-                std::cout << "First name cannot be empty. Starting over...\n";
+        }
+        else if (command == "SEARCH")
+        {
+            std::cout << "Enter id: ";
+            std::string input;
+            std::getline(std::cin, input);
+            if (input.empty())
+            {
+                std::cout << "Index cannot be empty. \n";
                 continue;
             }
-            phoneBook.searchContact(fname);
+            try
+            {
+                index = std::stoi(input);
+                phoneBook.searchContact(index);
+            }
+            catch (const std::exception &e)
+            {
+                std::cerr << "input should be a number" << '\n';
+            }
 
-        } else if (command == "EXIT") {
+            continue;
+        }
+        else if (command == "EXIT")
+        {
             break;
-        } else {
+        }
+        else
+        {
             std::cout << "Invalid command. Please enter ADD, SEARCH, or EXIT.\n";
         }
     }
