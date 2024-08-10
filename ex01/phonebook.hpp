@@ -1,4 +1,4 @@
-
+#pragma once
 #ifndef PHONEBOOK_HPP
 #define PHONEBOOK_HPP
 
@@ -55,7 +55,7 @@ public:
     ~PhoneBook();
     void addContact(Contact &new_contact);
     void searchContact(int id);
-    void printContacts(Contact &contact);
+    void printContacts();
     std::string formatField(const std::string &field);
 };
 

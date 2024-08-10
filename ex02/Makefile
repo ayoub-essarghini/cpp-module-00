@@ -1,4 +1,4 @@
-NAME=job
+NAME=dream
 INCLUDES=Account.hpp
 SRCS=Account.cpp tests.cpp
 

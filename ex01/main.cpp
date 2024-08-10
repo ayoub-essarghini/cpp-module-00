@@ -9,7 +9,7 @@ int main()
     Contact contact;
     while (true)
     {
-        std::cout << MAGENTA << "Enter command (ADD/SEARCH/EXIT):" << RESET;
+        std::cout << YELLOW << "Enter command (ADD/SEARCH/EXIT):" << RESET;
         std::getline(std::cin, command);
 
         if (command == "ADD")
@@ -68,9 +68,12 @@ int main()
         }
         else if (command == "SEARCH")
         {
-            std::cout << "Enter id: ";
+
+            phoneBook.printContacts();
+            std::cout << "Enter index : ";
             std::string input;
             std::getline(std::cin, input);
+
             if (input.empty())
             {
                 std::cout << "Index cannot be empty. \n";
@@ -79,14 +82,15 @@ int main()
             try
             {
                 index = std::stoi(input);
-                phoneBook.searchContact(index);
+                if (index < 8 && index >= 0)
+                    phoneBook.searchContact(index);
+                else
+                       std::cout << RED<<"please enter number between 0 and 7" << RESET << '\n';
             }
             catch (const std::exception &e)
             {
-                std::cerr << "input should be a number" << '\n';
+                std::cerr << "Invalid input" << '\n';
             }
-
-            continue;
         }
         else if (command == "EXIT")
         {
