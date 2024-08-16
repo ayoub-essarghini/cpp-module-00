@@ -2,14 +2,16 @@ NAME=phonebook
 INCLUDES=phonebook.hpp
 SRCS=phonebook.cpp contact.cpp main.cpp
 
-CFLAGS= -Wall -Wextra -Werror -std=c++98
+CXX= c++
+
+CXXFLAGS= #-Wall -Wextra -Werror -std=c++98
 
 OBJS=$(SRCS:.cpp=.o)
 
 all: $(NAME)
 
 $(NAME): $(INCLUDES) $(OBJS)
-	c++ $(CFLAGS) -o $(NAME) $(OBJS)
+	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
 	@echo "DONE ✅"
 
 clean:

@@ -5,10 +5,10 @@ Contact::Contact()
     
 }
 
-Contact::Contact(const Contact &new_contact)
-{
+// Contact::Contact(const Contact &new_contact)
+// {
 
-}
+// }
 Contact::~Contact()
 {
 

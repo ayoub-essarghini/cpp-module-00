@@ -4,9 +4,7 @@ PhoneBook::PhoneBook()
 {
 }
 
-PhoneBook::PhoneBook(const PhoneBook &new_phonebook)
-{
-}
+
 
 PhoneBook::~PhoneBook()
 {
