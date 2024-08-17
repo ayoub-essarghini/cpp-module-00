@@ -94,7 +94,9 @@ int main()
             }
             try
             {
-                index = std::stoi(input);
+
+                std::stringstream ss(input);
+                ss >> index;
                 if (index < 8 && index >= 0)
                     phoneBook.searchContact(index);
                 else

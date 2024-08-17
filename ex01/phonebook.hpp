@@ -3,6 +3,7 @@
 #define PHONEBOOK_HPP
 
 #include <iostream>
+#include <sstream>
 #include <iomanip> 
 #include <string>
 
