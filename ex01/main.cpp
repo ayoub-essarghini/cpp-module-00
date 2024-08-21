@@ -1,6 +1,18 @@
 
 #include "phonebook.hpp"
 
+bool isInteger(const std::string &input, int &index)
+{
+    std::stringstream ss(input);
+    ss >> index;
+    if (ss.fail())
+        return false;
+
+    if (!ss.eof())
+        return false;
+    return true;
+}
+
 int main()
 {
     PhoneBook phoneBook;
@@ -94,9 +106,11 @@ int main()
             }
             try
             {
-
-                std::stringstream ss(input);
-                ss >> index;
+                if (!isInteger(input, index))
+                {
+                    std::cout << RED << "The input should be a number" << RESET << '\n';
+                    continue;
+                }
                 if (index < 8 && index >= 0)
                     phoneBook.searchContact(index);
                 else

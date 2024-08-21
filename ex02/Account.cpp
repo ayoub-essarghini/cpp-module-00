@@ -14,7 +14,6 @@ Account::Account(int initial_deposit) : _amount(initial_deposit), _nbDeposits(0)
     _displayTimestamp();
     _accountIndex = _nbAccounts++;
     _totalAmount += _amount;
-    // _totalNbDeposits++;
     std::cout << "index:" << _accountIndex << ";amount:" << _amount << ";created" << std::endl;
 }
 
@@ -29,17 +28,17 @@ Account::~Account(void)
 
 void Account::_displayTimestamp(void)
 {
- std::time_t currentTime = std::time(0);
+    std::time_t currentTime = std::time(0);
     std::tm *localTime = std::localtime(&currentTime);
 
     std::cout << "["
-              << (localTime->tm_year + 1900)  // Year since 1900
-              << std::setw(2) << std::setfill('0') << (localTime->tm_mon + 1) 
-              << std::setw(2) << std::setfill('0') << localTime->tm_mday       
+              << (localTime->tm_year + 1900)
+              << std::setw(2) << std::setfill('0') << (localTime->tm_mon + 1)
+              << std::setw(2) << std::setfill('0') << localTime->tm_mday
               << "_"
-              << std::setw(2) << std::setfill('0') << localTime->tm_hour       
-              << std::setw(2) << std::setfill('0') << localTime->tm_min        
-              << std::setw(2) << std::setfill('0') << localTime->tm_sec     
+              << std::setw(2) << std::setfill('0') << localTime->tm_hour
+              << std::setw(2) << std::setfill('0') << localTime->tm_min
+              << std::setw(2) << std::setfill('0') << localTime->tm_sec
               << "] ";
 }
 
